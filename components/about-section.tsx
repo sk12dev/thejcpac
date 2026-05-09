@@ -1,10 +1,11 @@
-import { Music, Theater, Users, Star } from "lucide-react"
+import { Music, Theater, Users, Star } from "lucide-react";
 
 const features = [
   {
     icon: Theater,
     title: "World-Class Productions",
-    description: "From Broadway classics to original works, experience theater at its finest.",
+    description:
+      "From Broadway classics to original works, experience theater at its finest.",
   },
   {
     icon: Music,
@@ -14,14 +15,16 @@ const features = [
   {
     icon: Users,
     title: "Community Focus",
-    description: "A gathering place for schools, local artists, and community celebrations.",
+    description:
+      "A gathering place for schools, local artists, and community celebrations.",
   },
   {
     icon: Star,
     title: "Exceptional Experience",
-    description: "State-of-the-art acoustics and comfortable seating for every guest.",
+    description:
+      "State-of-the-art acoustics and comfortable seating for every guest.",
   },
-]
+];
 
 export function AboutSection() {
   return (
@@ -36,15 +39,16 @@ export function AboutSection() {
               The Heart of Bullitt County&apos;s Arts Scene
             </h2>
             <p className="text-muted-foreground text-lg mb-6 text-pretty">
-              The Judy Chandler Performing Arts Center stands as a beacon of cultural
-              enrichment in Mt. Washington, Kentucky. Our mission is to bring world-class
-              performances to our community while nurturing local talent and fostering
-              a love for the arts in all generations.
+              Finished in 2026, the Judy Chandler Performing Arts Center,
+              located inside Bullitt East High School, stands as a beacon of
+              cultural enrichment in Mt. Washington, Kentucky. Our mission is to
+              bring world-class performances to our community while nurturing
+              local talent and fostering a love for the arts in all generations.
             </p>
             <p className="text-muted-foreground text-lg text-pretty">
-              Whether you&apos;re here for a school concert, a touring Broadway show, or a
-              community celebration, our doors are open to all who seek the transformative
-              power of live performance.
+              Whether you&apos;re here for a school concert, a local production,
+              or a community celebration, our doors are open to all who seek the
+              transformative power of live performance.
             </p>
           </div>
 
@@ -57,13 +61,17 @@ export function AboutSection() {
                 <div className="w-12 h-12 bg-[#2a7c7c]/10 rounded-lg flex items-center justify-center mb-4">
                   <feature.icon className="w-6 h-6 text-[#2a7c7c]" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm">{feature.description}</p>
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
