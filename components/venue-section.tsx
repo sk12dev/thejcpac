@@ -1,7 +1,10 @@
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function VenueSection() {
+  const venueAddress = "11450 Highway 44 East, Mt. Washington, KY 40047";
+  const venueAddressQuery = encodeURIComponent(venueAddress);
+
   return (
     <section id="venue" className="py-24 bg-card">
       <div className="container mx-auto px-4">
@@ -13,15 +16,15 @@ export function VenueSection() {
             Visit Our Venue
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Conveniently located in Mt. Washington, our state-of-the-art facility is designed
-            for an exceptional experience.
+            Conveniently located in Mt. Washington, our state-of-the-art
+            facility is designed for an exceptional experience.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="aspect-video rounded-lg overflow-hidden border border-border">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.2!2d-85.54!3d38.04!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDAyJzI0LjAiTiA4NcKwMzInMjQuMCJX!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              src={`https://www.google.com/maps?q=${venueAddressQuery}&output=embed`}
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -38,9 +41,12 @@ export function VenueSection() {
                 <MapPin className="w-6 h-6 text-[#e05a47]" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-foreground mb-1">Address</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-1">
+                  Address
+                </h3>
                 <p className="text-muted-foreground">
-                  11450 Highway 44 East<br />
+                  11450 Highway 44 East
+                  <br />
                   Mt. Washington, KY 40047
                 </p>
                 <Button
@@ -49,7 +55,7 @@ export function VenueSection() {
                   asChild
                 >
                   <a
-                    href="https://www.google.com/maps/search/11450+Highway+44+East+Mt.+Washington+KY+40047"
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${venueAddressQuery}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -64,10 +70,14 @@ export function VenueSection() {
                 <Clock className="w-6 h-6 text-[#2a7c7c]" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-foreground mb-1">Box Office Hours</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-1">
+                  Box Office Hours
+                </h3>
                 <p className="text-muted-foreground">
-                  Monday - Friday: 10:00 AM - 5:00 PM<br />
-                  Saturday: 12:00 PM - 4:00 PM<br />
+                  Monday - Friday: 10:00 AM - 2:00 PM
+                  <br />
+                  Saturday: Closed (except event days)
+                  <br />
                   Sunday: Closed (except event days)
                 </p>
               </div>
@@ -78,8 +88,10 @@ export function VenueSection() {
                 <Phone className="w-6 h-6 text-[#e8b923]" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-foreground mb-1">Phone</h3>
-                <p className="text-muted-foreground">(502) 555-ARTS</p>
+                <h3 className="text-lg font-semibold text-foreground mb-1">
+                  Phone
+                </h3>
+                <p className="text-muted-foreground">(502) 869-BEFA</p>
               </div>
             </div>
 
@@ -88,13 +100,17 @@ export function VenueSection() {
                 <Mail className="w-6 h-6 text-[#e05a47]" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-foreground mb-1">Email</h3>
-                <p className="text-muted-foreground">info@judychandlerpac.org</p>
+                <h3 className="text-lg font-semibold text-foreground mb-1">
+                  Email
+                </h3>
+                <p className="text-muted-foreground">
+                  info@judychandlerpac.org
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
