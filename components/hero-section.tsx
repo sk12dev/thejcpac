@@ -7,7 +7,7 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="/images/PXL_20260506_000822516.MP.jpg"
+          src="/images/JCFAC-RoomView.jpg"
           alt="Judy Chandler Fine Arts Center Theater"
           fill
           className="object-cover"
