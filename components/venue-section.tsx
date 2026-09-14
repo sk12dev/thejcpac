@@ -31,7 +31,7 @@ export function VenueSection() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Judy Chandler Performing Arts Center Location"
+              title="Judy Chandler Fine Arts Center Location"
             />
           </div>
 

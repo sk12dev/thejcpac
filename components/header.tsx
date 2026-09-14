@@ -16,7 +16,7 @@ export function Header() {
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/images/jcpac-logo.png"
-              alt="Judy Chandler Performing Arts Center Logo"
+              alt="Judy Chandler Fine Arts Center Logo"
               width={30}
               height={60}
               className="w-6 h-12 md:w-10 md:h-14"
@@ -26,7 +26,7 @@ export function Header() {
                 Judy Chandler
               </p>
               <p className="text-xs text-[#2a7c7c] tracking-widest uppercase">
-                Performing Arts Center
+                Fine Arts Center
               </p>
             </div>
           </Link>

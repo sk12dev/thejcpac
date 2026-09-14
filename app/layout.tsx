@@ -7,9 +7,9 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Judy Chandler Performing Arts Center | Mt. Washington, KY",
+  title: "Judy Chandler Fine Arts Center | Mt. Washington, KY",
   description:
-    "Welcome to the Judy Chandler Performing Arts Center in Mt. Washington, Kentucky. Experience world-class theater, concerts, dance, and community events.",
+    "Welcome to the Judy Chandler Fine Arts Center in Mt. Washington, Kentucky. Experience world-class theater, concerts, dance, and community events.",
   icons: {
     icon: [
       {

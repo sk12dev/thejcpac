@@ -11,14 +11,14 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-6">
               <Image
                 src="/images/logo.png"
-                alt="Judy Chandler Performing Arts Center Logo"
+                alt="Judy Chandler Fine Arts Center Logo"
                 width={60}
                 height={60}
                 className="w-14 h-14"
               />
               <div>
                 <p className="text-lg font-bold tracking-wide text-foreground">Judy Chandler</p>
-                <p className="text-xs text-[#2a7c7c] tracking-widest uppercase">Performing Arts Center</p>
+                <p className="text-xs text-[#2a7c7c] tracking-widest uppercase">Fine Arts Center</p>
               </div>
             </Link>
             <p className="text-muted-foreground text-sm">
@@ -121,7 +121,7 @@ export function Footer() {
       <div className="border-t border-border">
         <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Judy Chandler Performing Arts Center. All rights reserved.
+            © {new Date().getFullYear()} Judy Chandler Fine Arts Center. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link href="#" className="text-muted-foreground hover:text-[#e8b923] transition-colors text-sm">

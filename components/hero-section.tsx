@@ -8,7 +8,7 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <Image
           src="/images/PXL_20260506_000822516.MP.jpg"
-          alt="Judy Chandler Performing Arts Center Theater"
+          alt="Judy Chandler Fine Arts Center Theater"
           fill
           className="object-cover"
           priority

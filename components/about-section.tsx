@@ -39,7 +39,7 @@ export function AboutSection() {
               The Heart of Bullitt County&apos;s Arts Scene
             </h2>
             <p className="text-muted-foreground text-lg mb-6 text-pretty">
-              Finished in 2026, the Judy Chandler Performing Arts Center,
+              Finished in 2026, the Judy Chandler Fine Arts Center,
               located inside Bullitt East High School, stands as a beacon of
               cultural enrichment in Mt. Washington, Kentucky. Our mission is to
               bring world-class performances to our community while nurturing
