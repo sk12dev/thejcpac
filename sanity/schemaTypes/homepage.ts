@@ -14,6 +14,7 @@ export const homepage = defineType({
     { name: "events", title: "Events" },
     { name: "about", title: "About" },
     { name: "venue", title: "Venue" },
+    { name: "faq", title: "FAQ" },
     { name: "newsletter", title: "Newsletter" },
   ],
   fields: [
@@ -216,6 +217,69 @@ export const homepage = defineType({
           rows: 3,
           initialValue:
             "Conveniently located in Mt. Washington, our state-of-the-art facility is designed for an exceptional experience.",
+        }),
+      ],
+    }),
+    defineField({
+      name: "faq",
+      title: "FAQ",
+      type: "object",
+      group: "faq",
+      fields: [
+        defineField({
+          name: "eyebrow",
+          type: "string",
+          initialValue: "Good To Know",
+        }),
+        defineField({
+          name: "title",
+          type: "string",
+          initialValue: "Frequently Asked Questions",
+        }),
+        defineField({
+          name: "description",
+          type: "text",
+          rows: 3,
+          initialValue:
+            "Answers to common questions about visiting, tickets, and performances.",
+        }),
+        defineField({
+          name: "items",
+          title: "Questions",
+          type: "array",
+          of: [{ type: "faqItem" }],
+          initialValue: [
+            {
+              _type: "faqItem",
+              question: "Where is the Judy Chandler Fine Arts Center?",
+              answer:
+                "The center is inside Bullitt East High School at 11450 Highway 44 East, Mt. Washington, KY 40047.",
+            },
+            {
+              _type: "faqItem",
+              question: "When is the box office open?",
+              answer:
+                "Monday through Friday, 10:00 AM to 2:00 PM. The box office is closed Saturday and Sunday except on event days.",
+            },
+            {
+              _type: "faqItem",
+              question: "How do I buy tickets?",
+              answer:
+                "Choose an upcoming event and select Get Tickets, or call the box office at (502) 869-JCFA during open hours.",
+            },
+            {
+              _type: "faqItem",
+              question: "How can I reach the center?",
+              answer:
+                "Call (502) 869-JCFA or email jcfac@bullittschools.org.",
+            },
+            {
+              _type: "faqItem",
+              question: "What kinds of performances are held here?",
+              answer:
+                "The center hosts local theater, concerts, dance recitals, school performances, and community events.",
+            },
+          ],
         }),
       ],
     }),

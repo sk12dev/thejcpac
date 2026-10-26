@@ -86,6 +86,15 @@ type QueryResult = {
       title?: string | null
       description?: string | null
     } | null
+    faq?: {
+      eyebrow?: string | null
+      title?: string | null
+      description?: string | null
+      items?: Array<{
+        question?: string | null
+        answer?: string | null
+      } | null> | null
+    } | null
     newsletter?: {
       title?: string | null
       description?: string | null
@@ -142,6 +151,18 @@ function links(value: SanityLink[] | null | undefined, fallback: NavLink[]) {
   return next.length > 0 ? next : fallback
 }
 
+function withFaqLink(items: NavLink[], label: string) {
+  if (items.some((item) => item.href === "#faq")) return items
+  const faq = { label, href: "#faq" }
+  const contactIndex = items.findIndex((item) => item.href === "#contact")
+  if (contactIndex === -1) return [...items, faq]
+  return [
+    ...items.slice(0, contactIndex),
+    faq,
+    ...items.slice(contactIndex),
+  ]
+}
+
 function featureIcon(value: string | null | undefined): FeatureIcon {
   return featureIcons.includes(value as FeatureIcon)
     ? (value as FeatureIcon)
@@ -165,6 +186,7 @@ function mergeContent(data: QueryResult | null): SiteContent {
   const eventsSection = home?.eventsSection
   const about = home?.about
   const venue = home?.venue
+  const faq = home?.faq
   const newsletter = home?.newsletter
   const fallback = fallbackContent
 
@@ -226,7 +248,7 @@ function mergeContent(data: QueryResult | null): SiteContent {
       tagline: text(settings?.descriptor, fallback.header.tagline),
       ticketLabel,
       ticketHref,
-      nav: links(settings?.navLinks, fallback.header.nav),
+      nav: withFaqLink(links(settings?.navLinks, fallback.header.nav), "FAQ"),
     },
     hero: {
       locationLabel: text(hero?.locationLabel, fallback.hero.locationLabel),
@@ -277,6 +299,20 @@ function mergeContent(data: QueryResult | null): SiteContent {
       email: text(settings?.email, fallback.venue.email),
       directionsHref: mapsDirectionsHref(street, cityStateZip),
     },
+    faq: {
+      eyebrow: text(faq?.eyebrow, fallback.faq.eyebrow),
+      title: text(faq?.title, fallback.faq.title),
+      description: text(faq?.description, fallback.faq.description),
+      items: (() => {
+        const published = (faq?.items ?? [])
+          .map((item) => ({
+            question: item?.question?.trim() ?? "",
+            answer: item?.answer?.trim() ?? "",
+          }))
+          .filter((item) => item.question && item.answer)
+        return published.length > 0 ? published : fallback.faq.items
+      })(),
+    },
     newsletter: {
       title: text(newsletter?.title, fallback.newsletter.title),
       description: text(newsletter?.description, fallback.newsletter.description),
@@ -294,7 +330,10 @@ function mergeContent(data: QueryResult | null): SiteContent {
       name: text(settings?.shortName, fallback.footer.name),
       tagline: text(settings?.descriptor, fallback.footer.tagline),
       blurb: text(settings?.footerBlurb, fallback.footer.blurb),
-      quickLinks: links(settings?.quickLinks, fallback.footer.quickLinks),
+      quickLinks: withFaqLink(
+        links(settings?.quickLinks, fallback.footer.quickLinks),
+        "FAQs",
+      ),
       supportLinks: links(settings?.supportLinks, fallback.footer.supportLinks),
       socials: socials.length > 0 ? socials : fallback.footer.socials,
       street,

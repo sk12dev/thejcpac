@@ -77,6 +77,18 @@ export type VenueContent = {
   directionsHref: string
 }
 
+export type FaqItem = {
+  question: string
+  answer: string
+}
+
+export type FaqContent = {
+  eyebrow: string
+  title: string
+  description: string
+  items: FaqItem[]
+}
+
 export type NewsletterContent = {
   title: string
   description: string
@@ -109,6 +121,7 @@ export type SiteContent = {
   eventsSection: EventsSectionContent
   about: AboutContent
   venue: VenueContent
+  faq: FaqContent
   newsletter: NewsletterContent
   footer: FooterContent
 }
@@ -130,6 +143,7 @@ export const fallbackContent: SiteContent = {
       { label: "Events", href: "#events" },
       { label: "About", href: "#about" },
       { label: "Venue", href: "#venue" },
+      { label: "FAQ", href: "#faq" },
       { label: "Contact", href: "#contact" },
     ],
   },
@@ -245,6 +259,38 @@ export const fallbackContent: SiteContent = {
     directionsHref:
       "https://www.google.com/maps/dir/?api=1&destination=11450%20Highway%2044%20East%2C%20Mt.%20Washington%2C%20KY%2040047",
   },
+  faq: {
+    eyebrow: "Good To Know",
+    title: "Frequently Asked Questions",
+    description:
+      "Answers to common questions about visiting, tickets, and performances.",
+    items: [
+      {
+        question: "Where is the Judy Chandler Fine Arts Center?",
+        answer:
+          "The center is inside Bullitt East High School at 11450 Highway 44 East, Mt. Washington, KY 40047.",
+      },
+      {
+        question: "When is the box office open?",
+        answer:
+          "Monday through Friday, 10:00 AM to 2:00 PM. The box office is closed Saturday and Sunday except on event days.",
+      },
+      {
+        question: "How do I buy tickets?",
+        answer:
+          "Choose an upcoming event and select Get Tickets, or call the box office at (502) 869-JCFA during open hours.",
+      },
+      {
+        question: "How can I reach the center?",
+        answer: "Call (502) 869-JCFA or email jcfac@bullittschools.org.",
+      },
+      {
+        question: "What kinds of performances are held here?",
+        answer:
+          "The center hosts local theater, concerts, dance recitals, school performances, and community events.",
+      },
+    ],
+  },
   newsletter: {
     title: "Stay in the Spotlight",
     description:
@@ -265,6 +311,7 @@ export const fallbackContent: SiteContent = {
       { label: "Upcoming Events", href: "#events" },
       { label: "Buy Tickets", href: ticketHref },
       { label: "Plan Your Visit", href: "#venue" },
+      { label: "FAQs", href: "#faq" },
       { label: "Rent Our Venue", href: "#" },
     ],
     supportLinks: [

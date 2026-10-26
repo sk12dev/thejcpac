@@ -5,6 +5,7 @@ import { HeroSection } from "@/components/hero-section"
 import { UpcomingEvents } from "@/components/upcoming-events"
 import { AboutSection } from "@/components/about-section"
 import { VenueSection } from "@/components/venue-section"
+import { FaqSection } from "@/components/faq-section"
 import { NewsletterSection } from "@/components/newsletter-section"
 import { Footer } from "@/components/footer"
 import { getSiteContent } from "@/lib/get-site-content"
@@ -28,6 +29,7 @@ export default async function Home() {
       <UpcomingEvents {...content.eventsSection} />
       <AboutSection {...content.about} />
       <VenueSection {...content.venue} />
+      <FaqSection {...content.faq} />
       <NewsletterSection {...content.newsletter} />
       <Footer {...content.footer} />
     </main>

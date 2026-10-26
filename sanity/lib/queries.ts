@@ -54,6 +54,12 @@ export const siteQuery = `{
       title,
       description
     },
+    faq{
+      eyebrow,
+      title,
+      description,
+      items[]{ question, answer }
+    },
     newsletter{
       title,
       description,

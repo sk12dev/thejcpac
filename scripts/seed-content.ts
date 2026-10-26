@@ -35,7 +35,7 @@ function feature(
 }
 
 async function seed() {
-  const { hero, about, eventsSection, venue, newsletter, header, footer } =
+  const { hero, about, eventsSection, venue, faq, newsletter, header, footer } =
     fallbackContent
 
   let heroImage: { _type: "image"; alt: string; asset: { _type: "reference"; _ref: string } } | undefined
@@ -121,6 +121,17 @@ async function seed() {
       eyebrow: venue.eyebrow,
       title: venue.title,
       description: venue.description,
+    },
+    faq: {
+      eyebrow: faq.eyebrow,
+      title: faq.title,
+      description: faq.description,
+      items: faq.items.map((item, index) => ({
+        _type: "faqItem",
+        _key: `faq-${index}`,
+        question: item.question,
+        answer: item.answer,
+      })),
     },
     newsletter,
   })
