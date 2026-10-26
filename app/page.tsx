@@ -1,3 +1,5 @@
+import type { Metadata } from "next"
+
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { UpcomingEvents } from "@/components/upcoming-events"
@@ -5,17 +7,29 @@ import { AboutSection } from "@/components/about-section"
 import { VenueSection } from "@/components/venue-section"
 import { NewsletterSection } from "@/components/newsletter-section"
 import { Footer } from "@/components/footer"
+import { getSiteContent } from "@/lib/get-site-content"
 
-export default function Home() {
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getSiteContent()
+
+  return {
+    title: content.metaTitle,
+    description: content.metaDescription,
+  }
+}
+
+export default async function Home() {
+  const content = await getSiteContent()
+
   return (
     <main className="min-h-screen bg-background">
-      <Header />
-      <HeroSection />
-      <UpcomingEvents />
-      <AboutSection />
-      <VenueSection />
-      <NewsletterSection />
-      <Footer />
+      <Header {...content.header} />
+      <HeroSection {...content.hero} />
+      <UpcomingEvents {...content.eventsSection} />
+      <AboutSection {...content.about} />
+      <VenueSection {...content.venue} />
+      <NewsletterSection {...content.newsletter} />
+      <Footer {...content.footer} />
     </main>
   )
 }

@@ -10,6 +10,9 @@ next.user-config.*
 # Environment variables
 .env*.local
 
+# Sanity local state
+.sanity
+
 # Common ignores
 node_modules
 .next/

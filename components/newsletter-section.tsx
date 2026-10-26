@@ -3,8 +3,16 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
+import type { NewsletterContent } from "@/lib/site-content"
 
-export function NewsletterSection() {
+export function NewsletterSection({
+  title,
+  description,
+  successTitle,
+  successMessage,
+  placeholder,
+  buttonLabel,
+}: NewsletterContent) {
   const [email, setEmail] = useState("")
   const [submitted, setSubmitted] = useState(false)
 
@@ -24,25 +32,23 @@ export function NewsletterSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
-            Stay in the Spotlight
+            {title}
           </h2>
-          <p className="text-muted-foreground mb-8 text-pretty">
-            Subscribe to our newsletter for exclusive presale access, behind-the-scenes content,
-            and the latest updates on upcoming performances.
-          </p>
+          <p className="text-muted-foreground mb-8 text-pretty">{description}</p>
 
           {submitted ? (
             <div className="p-6 bg-[#2a7c7c]/10 border border-[#2a7c7c]/30 rounded-lg">
-              <p className="text-[#2a7c7c] font-semibold">Thank you for subscribing!</p>
-              <p className="text-muted-foreground text-sm mt-1">
-                You&apos;ll receive our next newsletter soon.
-              </p>
+              <p className="text-[#2a7c7c] font-semibold">{successTitle}</p>
+              <p className="text-muted-foreground text-sm mt-1">{successMessage}</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+            >
               <Input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={placeholder}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -52,7 +58,7 @@ export function NewsletterSection() {
                 type="submit"
                 className="bg-[#e8b923] text-background hover:bg-[#e8b923]/90 whitespace-nowrap"
               >
-                Subscribe
+                {buttonLabel}
               </Button>
             </form>
           )}
