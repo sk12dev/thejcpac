@@ -147,6 +147,7 @@ async function seed() {
       category: event.category,
       dateLabel: event.date,
       time: event.time,
+      ticketsAvailable: event.ticketsAvailable,
       startDate: eventDates[index],
       sortOrder: index + 1,
     })

@@ -112,6 +112,7 @@ type QueryResult = {
     dateLabel?: string | null
     time?: string | null
     image?: SanityImage
+    ticketsAvailable?: boolean | null
     ticketUrl?: string | null
   } | null> | null
 }
@@ -233,6 +234,7 @@ function mergeContent(data: QueryResult | null): SiteContent {
         ),
         imageAlt: text(event?.image?.alt, title),
         category,
+        ticketsAvailable: event?.ticketsAvailable !== false,
         ticketHref: text(event?.ticketUrl, ticketHref),
       }
     })

@@ -77,6 +77,7 @@ export const siteQuery = `{
     dateLabel,
     time,
     image,
+    ticketsAvailable,
     ticketUrl
   }
 }`

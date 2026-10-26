@@ -67,10 +67,18 @@ export const event = defineType({
       ],
     }),
     defineField({
+      name: "ticketsAvailable",
+      title: "Ticket ordering",
+      type: "boolean",
+      description: "Turn this off to show Free Event instead of a ticket button.",
+      initialValue: true,
+    }),
+    defineField({
       name: "ticketUrl",
       title: "Ticket link",
       type: "url",
       description: "Leave blank to use the ticket link from Site Settings.",
+      hidden: ({ parent }) => parent?.ticketsAvailable === false,
     }),
     defineField({
       name: "sortOrder",

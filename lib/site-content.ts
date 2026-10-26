@@ -16,6 +16,7 @@ export type SiteEvent = {
   imageSrc: string
   imageAlt: string
   category: string
+  ticketsAvailable: boolean
   ticketHref: string
 }
 
@@ -180,6 +181,7 @@ export const fallbackContent: SiteContent = {
         imageSrc: "/images/event-theater.jpg",
         imageAlt: "The Tempest",
         category: "Theater",
+        ticketsAvailable: true,
         ticketHref,
       },
       {
@@ -192,6 +194,7 @@ export const fallbackContent: SiteContent = {
         imageSrc: "/images/event-concert.jpg",
         imageAlt: "Spring Symphony Concert",
         category: "Concert",
+        ticketsAvailable: true,
         ticketHref,
       },
       {
@@ -204,6 +207,7 @@ export const fallbackContent: SiteContent = {
         imageSrc: "/images/event-dance.jpg",
         imageAlt: "In Bloom: Spring Dance Recital",
         category: "Dance",
+        ticketsAvailable: true,
         ticketHref,
       },
     ],

@@ -66,21 +66,27 @@ export function UpcomingEvents({
                       <span>{event.time}</span>
                     </div>
                   </div>
-                  {isNavigableHref(event.ticketHref) ? (
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="w-full border-[#e8b923] text-[#e8b923] hover:bg-[#e8b923] hover:text-background"
-                    >
-                      <ContentLink href={event.ticketHref}>Get Tickets</ContentLink>
-                    </Button>
+                  {event.ticketsAvailable ? (
+                    isNavigableHref(event.ticketHref) ? (
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="w-full border-[#e8b923] text-[#e8b923] hover:bg-[#e8b923] hover:text-background"
+                      >
+                        <ContentLink href={event.ticketHref}>Get Tickets</ContentLink>
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="outline"
+                        className="w-full border-[#e8b923] text-[#e8b923] hover:bg-[#e8b923] hover:text-background"
+                      >
+                        Get Tickets
+                      </Button>
+                    )
                   ) : (
-                    <Button
-                      variant="outline"
-                      className="w-full border-[#e8b923] text-[#e8b923] hover:bg-[#e8b923] hover:text-background"
-                    >
-                      Get Tickets
-                    </Button>
+                    <div className="flex h-9 w-full items-center justify-center rounded-md border border-[#2a7c7c] text-sm font-medium text-[#2a7c7c]">
+                      Free Event
+                    </div>
                   )}
                 </CardContent>
               </Card>
